@@ -11,20 +11,22 @@ screen.title("Pong Game")
 screen.tracer(0)
 
 
-paddle = Paddle()
+
 scoreboard = ScoreBoard()
 
-screen.listen()
-screen.onkey(fun=paddle.up,key="Up")
-screen.onkey(fun=paddle.down,key="Down")
+right =Paddle((350, 0))
+left =Paddle((-350, 0))
 
-paddle.create_computer_paddle()
-paddle.create_user_paddle()
+
+screen.listen()
+screen.onkey(fun=right.up,key="Up")
+screen.onkey(fun=right.down,key="Down")
+screen.onkey(fun=left.up,key="w")
+screen.onkey(fun=left.down,key="s")
 
 game_is_on = True
 while game_is_on:
     screen.update()
-    sleep(0.1)
 
 
 
