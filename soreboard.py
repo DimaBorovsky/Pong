@@ -5,35 +5,28 @@ class ScoreBoard(Turtle):
 
     def __init__(self):
         super().__init__()
-        user = Turtle()
-        computer = Turtle()
-        self.user_score  = 0
-        self.computer_score = 0
-        user.ht()
-        computer.ht()
-        user.penup()
-        computer.penup()
-        user.goto(-50,270)
-        computer.goto(50,270)
-        user.color("white")
-        computer.color("white")
-        user.write(arg=f"User: {self.computer_score}",align="right",font=("Arial",14,"normal"))
-        computer.write(arg=f"Computer: {self.computer_score}",align="right",font=("Arial",14,"normal"))
+        self.color("white")
+        self.penup()
+        self.ht()
+        self.l_score = 0
+        self.r_score = 0
+        self.update_score()
 
 
-    def increase_user_score(self):
+
+    def update_score(self):
         self.clear()
-        self.user_score +=1
-        self.write(self.user_score, align="left", font=("Arial", 24, "normal"))
+        self.goto(-100,200)
+        self.write(self.l_score,align="center",font=("Courier",80,"normal"))
+        self.goto(100,200)
+        self.write(self.r_score, align="center", font=("Courier", 80, "normal"))
 
 
 
-    def increase_computer_score(self):
-        self.clear()
-        self.computer_score +=1
-        self.write(self.computer_score, align="right", font=("Arial", 24, "normal"))
+    def l_point(self):
+        self.l_score += 1
+        self.update_score()
 
-
-
-
-
+    def r_point(self):
+        self.r_score += 1
+        self.update_score()
