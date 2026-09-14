@@ -3,6 +3,7 @@ from turtle import Screen
 from paddle import Paddle
 from soreboard import ScoreBoard
 from ball import Ball
+from net import Net
 
 screen = Screen()
 screen.setup(width=800,height=600)
@@ -11,8 +12,8 @@ screen.title("Pong Game")
 screen.tracer(0)
 
 
-
-
+net = Net()
+net.dashed_line()
 
 scoreboard = ScoreBoard()
 ball = Ball()
@@ -27,6 +28,7 @@ screen.onkey(fun=left.up,key="w")
 screen.onkey(fun=left.down,key="s")
 
 game_is_on = True
+
 while game_is_on:
     sleep(0.1)
     screen.update()
